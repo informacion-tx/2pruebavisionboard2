@@ -1,1 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCOA - TexGo Colombia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
+        body {
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+        }
+
+        /* Contenedor del Póster */
+        .poster {
+            position: relative;
+            width: 100%;
+            max-width: 850px;
+            aspect-ratio: 1 / 1.37;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.85);
+        }
+
+        /* 1. Logo TexGo */
+        .logo {
+            position: absolute !important;
+            top: -1.5% !important;
+            left: -2% !important;
+            width: 32% !important;
+            max-width: 260px !important;
+            z-index: 20 !important;
+            filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.35));
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* 2. Modelo */
+        .model-container {
+            position: absolute !important;
+            left: -12% !important;
+            bottom: -14% !important;
+            height: 98% !important;
+            z-index: 5 !important;
+            display: flex !important;
+            align-items: flex-end !important;
+            pointer-events: none;
+        }
+
+        /* Sombra proyectada en el piso */
+        .model-shadow {
+            position: absolute;
+            bottom: 0px;
+            left: 15%;
+            width: 75%;
+            height: 25px;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0) 80%);
+            border-radius: 50%;
+            z-index: 4;
+            transform: scaleY(0.35);
+            filter: blur(7px);
+        }
+
+        .model-container img {
+            height: 100% !important;
+            width: auto !important;
+            display: block !important;
+            object-fit: contain !important;
+            object-position: bottom left !important;
+            position: relative;
+            z-index: 5;
+            filter: drop-shadow(-10px 14px 20px rgba(0, 0, 0, 0.4));
+        }
+
+        /* Bloque de Información Superior Derecha */
+        .info-block {
+            position: absolute !important;
+            top: 6.5% !important;
+            right: 13.5% !important;
+            z-index: 10 !important;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        /* Título COCOA */
+        .title-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7.8vw, 5.8rem);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: #0a0a0a;
+            line-height: 0.9;
+            text-shadow: 3px 4px 8px rgba(0, 0, 0, 0.3), 1px 1px 2px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Composición de Material */
+        .composition {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.75rem, 1.8vw, 1.3rem);
+            font-weight: 600;
+            color: #1a1a1a;
+            letter-spacing: 0.12em;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 1px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Especificaciones Técnicas (Mismo tamaño que Poliéster) */
+        .specs {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            align-items: flex-end;
+        }
+
+        .spec-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.75rem, 1.8vw, 1.3rem);
+            font-weight: 600;
+            color: #0a0a0a;
+            letter-spacing: 0.08em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 1px rgba(255, 255, 255, 0.3);
+            white-space: nowrap;
+        }
+
+        /* 5. Franja Lateral de Colores */
+        .pantone-bar {
+            position: absolute !important;
+            top: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 11.5% !important;
+            z-index: 20 !important;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -3px 0 12px rgba(0,0,0,0.15);
+        }
+
+        .pantone-item {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .pantone-item:hover {
+            transform: translateX(-8px);
+            z-index: 30;
+            filter: brightness(1.08);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .pantone-label {
+            position: absolute;
+            bottom: 3px;
+            right: 4px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.32rem, 0.55vw, 0.52rem);
+            font-weight: 700;
+            color: #000000;
+            letter-spacing: 0.03em;
+            user-select: none;
+            text-transform: uppercase;
+        }
+
+        .pantone-item.dark .pantone-label {
+            color: #ffffff;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0;
+            }
+            .poster {
+                box-shadow: none;
+            }
+            .logo {
+                width: 38% !important;
+            }
+            .model-container {
+                left: -15% !important;
+            }
+            .pantone-bar {
+                width: 13% !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poster">
+        <!-- Logo TexGo -->
+        <div class="logo">
+            <img src="logo.png" alt="TexGo Logo">
+        </div>
+
+        <!-- Modelo con Sombra de Piso -->
+        <div class="model-container">
+            <div class="model-shadow"></div>
+            <img src="model.png" alt="Modelo Cocoa">
+        </div>
+
+        <!-- Bloque de Información -->
+        <div class="info-block">
+            <!-- Título COCOA -->
+            <div class="title-container">
+                <h1 class="title">COCOA</h1>
+            </div>
+
+            <!-- Composición de la Tela -->
+            <div class="composition">100% POLIESTER</div>
+
+            <!-- Especificaciones Técnicas (Mismo tamaño que la composición) -->
+            <div class="specs">
+                <span class="spec-text">275 GM2 (+/-5%)</span>
+                <span class="spec-text">152 CM (+/-5%)</span>
+            </div>
+        </div>
+
+        <!-- Barra de Colores Personalizada -->
+        <div class="pantone-bar">
+            <!-- 1. MARFIL -->
+            <div class="pantone-item" style="background-color: #F4EFE3;" title="MARFIL">
+                <span class="pantone-label">MARFIL</span>
+            </div>
+            <!-- 2. CREMA -->
+            <div class="pantone-item" style="background-color: #E8DCC4;" title="CREMA">
+                <span class="pantone-label">CREMA</span>
+            </div>
+            <!-- 3. BALLET -->
+            <div class="pantone-item" style="background-color: #F8D9D9;" title="BALLET">
+                <span class="pantone-label">BALLET</span>
+            </div>
+            <!-- 4. SORBETE -->
+            <div class="pantone-item" style="background-color: #FBE28E;" title="SORBETE">
+                <span class="pantone-label">SORBETE</span>
+            </div>
+            <!-- 5. SALVIA -->
+            <div class="pantone-item" style="background-color: #B9D0C1;" title="SALVIA">
+                <span class="pantone-label">SALVIA</span>
+            </div>
+            <!-- 6. DARK SAND -->
+            <div class="pantone-item" style="background-color: #8C826E;" title="DARK SAND">
+                <span class="pantone-label">DARK SAND</span>
+            </div>
+            <!-- 7. TANG -->
+            <div class="pantone-item" style="background-color: #B58456;" title="TANG">
+                <span class="pantone-label">TANG</span>
+            </div>
+            <!-- 8. CHOCOLATE -->
+            <div class="pantone-item dark" style="background-color: #4C3C37;" title="CHOCOLATE">
+                <span class="pantone-label">CHOCOLATE</span>
+            </div>
+            <!-- 9. VINOTINTO -->
+            <div class="pantone-item dark" style="background-color: #4A0E17;" title="VINOTINTO">
+                <span class="pantone-label">VINOTINTO</span>
+            </div>
+            <!-- 10. TEAL -->
+            <div class="pantone-item dark" style="background-color: #438084;" title="TEAL">
+                <span class="pantone-label">TEAL</span>
+            </div>
+            <!-- 11. JET BLACK -->
+            <div class="pantone-item dark" style="background-color: #12181E;" title="JET BLACK">
+                <span class="pantone-label">JET BLACK</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
