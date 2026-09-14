@@ -21,7 +21,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            font-family: 'Playfair Display', 'Times New Roman', serif;
+            font-family: 'Bell MT', 'Playfair Display', 'Times New Roman', serif;
         }
 
         /* Contenedor del Póster */
@@ -92,11 +92,11 @@
             filter: drop-shadow(-10px 14px 20px rgba(0, 0, 0, 0.4));
         }
 
-        /* Bloque de Información Desplazado más a la derecha */
+        /* Bloque de Información Superior Derecha */
         .info-block {
             position: absolute !important;
             top: 7.5% !important;
-            right: 8% !important; /* Ajustado más hacia la derecha */
+            right: 8% !important;
             z-index: 10 !important;
             display: flex;
             flex-direction: column;
@@ -112,7 +112,7 @@
         }
 
         .title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Bell MT', 'Playfair Display', serif;
             font-size: clamp(3.2rem, 8.2vw, 6.2rem);
             font-weight: 600;
             letter-spacing: 0.05em;
@@ -123,7 +123,7 @@
 
         /* Composición de Material */
         .composition {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Bell MT', 'Playfair Display', serif;
             font-size: clamp(0.85rem, 2vw, 1.4rem);
             font-weight: 600;
             color: #1a1a1a;
@@ -141,7 +141,7 @@
         }
 
         .spec-text {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Bell MT', 'Playfair Display', serif;
             font-size: clamp(0.85rem, 2vw, 1.4rem);
             font-weight: 600;
             color: #0a0a0a;
@@ -158,9 +158,9 @@
             z-index: 15;
             background: rgba(10, 10, 10, 0.85);
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             padding: 12px 28px;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Bell MT', 'Playfair Display', serif;
             font-size: clamp(0.9rem, 1.8vw, 1.3rem);
             font-weight: 600;
             letter-spacing: 0.15em;
@@ -179,7 +179,7 @@
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4);
         }
 
-        /* Interfaz Modal de Colores (Oculta por defecto) */
+        /* Interfaz Modal de Colores */
         .colors-modal {
             position: absolute;
             inset: 0;
@@ -203,6 +203,7 @@
 
         .modal-title {
             color: #ffffff;
+            font-family: 'Bell MT', 'Playfair Display', serif;
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 600;
             letter-spacing: 0.1em;
@@ -236,15 +237,18 @@
             transform: translateY(-5px);
         }
 
+        /* Cuadro de color con borde delgado blanco */
         .color-box {
             height: 85px;
             width: 100%;
+            border: 1px solid #ffffff;
+            box-sizing: border-box;
         }
 
         .color-name {
             padding: 8px 4px;
             text-align: center;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Bell MT', 'Playfair Display', serif;
             font-size: 0.75rem;
             font-weight: 700;
             color: #0a0a0a;
@@ -259,7 +263,7 @@
             color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.5);
             padding: 8px 24px;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Bell MT', 'Playfair Display', serif;
             font-size: 0.9rem;
             letter-spacing: 0.1em;
             cursor: pointer;
@@ -309,7 +313,7 @@
             <img src="model.png" alt="Modelo Cocoa">
         </div>
 
-        <!-- Bloque de Información Reubicado a la Derecha -->
+        <!-- Bloque de Información -->
         <div class="info-block">
             <!-- Título COCOA -->
             <div class="title-container">
