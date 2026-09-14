@@ -6,7 +6,7 @@
     <title>COCOA - TexGo Colombia</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -21,7 +21,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            font-family: 'Bell MT', 'Playfair Display', 'Times New Roman', serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         /* Contenedor del Póster */
@@ -112,24 +112,24 @@
         }
 
         .title {
-            font-family: 'Bell MT', 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-size: clamp(3.2rem, 8.2vw, 6.2rem);
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 0.05em;
             color: #0a0a0a;
             line-height: 0.9;
-            text-shadow: 3px 4px 8px rgba(0, 0, 0, 0.3), 1px 1px 2px rgba(255, 255, 255, 0.4);
+            text-shadow: 3px 4px 8px rgba(0, 0, 0, 0.25), 1px 1px 2px rgba(255, 255, 255, 0.4);
         }
 
         /* Composición de Material */
         .composition {
-            font-family: 'Bell MT', 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-size: clamp(0.85rem, 2vw, 1.4rem);
-            font-weight: 600;
+            font-weight: 500;
             color: #1a1a1a;
             letter-spacing: 0.12em;
             margin-bottom: 8px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 1px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.3);
         }
 
         /* Especificaciones Técnicas */
@@ -141,16 +141,16 @@
         }
 
         .spec-text {
-            font-family: 'Bell MT', 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-size: clamp(0.85rem, 2vw, 1.4rem);
-            font-weight: 600;
+            font-weight: 500;
             color: #0a0a0a;
             letter-spacing: 0.08em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 1px rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.3);
             white-space: nowrap;
         }
 
-        /* Botón "COLORES" en la parte inferior derecha */
+        /* Botón "COLORES" */
         .btn-colors {
             position: absolute;
             bottom: 6%;
@@ -160,9 +160,9 @@
             color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.4);
             padding: 12px 28px;
-            font-family: 'Bell MT', 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-size: clamp(0.9rem, 1.8vw, 1.3rem);
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 0.15em;
             cursor: pointer;
             backdrop-filter: blur(5px);
@@ -203,7 +203,7 @@
 
         .modal-title {
             color: #ffffff;
-            font-family: 'Bell MT', 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 600;
             letter-spacing: 0.1em;
@@ -211,7 +211,7 @@
             text-align: center;
         }
 
-        /* Grid de Muestras en la Modal */
+        /* Grid de Muestras */
         .colors-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -237,7 +237,6 @@
             transform: translateY(-5px);
         }
 
-        /* Cuadro de color con borde delgado blanco */
         .color-box {
             height: 85px;
             width: 100%;
@@ -248,23 +247,24 @@
         .color-name {
             padding: 8px 4px;
             text-align: center;
-            font-family: 'Bell MT', 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 0.75rem;
-            font-weight: 700;
+            font-weight: 600;
             color: #0a0a0a;
             letter-spacing: 0.05em;
             text-transform: uppercase;
         }
 
-        /* Botón para cerrar la Modal */
+        /* Botón para cerrar */
         .btn-close {
             margin-top: 25px;
             background: transparent;
             color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.5);
             padding: 8px 24px;
-            font-family: 'Bell MT', 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 0.9rem;
+            font-weight: 400;
             letter-spacing: 0.1em;
             cursor: pointer;
             transition: all 0.25s ease;
