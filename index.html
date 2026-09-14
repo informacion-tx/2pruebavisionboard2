@@ -92,11 +92,11 @@
             filter: drop-shadow(-10px 14px 20px rgba(0, 0, 0, 0.4));
         }
 
-        /* Bloque de Información Desplazado más a la izquierda */
+        /* Bloque de Información Desplazado más a la derecha */
         .info-block {
             position: absolute !important;
             top: 7.5% !important;
-            right: 18% !important; /* Movido más a la izquierda para centrarlo mejor */
+            right: 8% !important; /* Ajustado más hacia la derecha */
             z-index: 10 !important;
             display: flex;
             flex-direction: column;
@@ -210,7 +210,7 @@
             text-align: center;
         }
 
-        /* Grid de Muestras Pantone en la Modal */
+        /* Grid de Muestras en la Modal */
         .colors-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -286,7 +286,7 @@
                 left: -15% !important;
             }
             .info-block {
-                right: 12% !important;
+                right: 6% !important;
             }
             .colors-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -309,7 +309,7 @@
             <img src="model.png" alt="Modelo Cocoa">
         </div>
 
-        <!-- Bloque de Información Reubicado -->
+        <!-- Bloque de Información Reubicado a la Derecha -->
         <div class="info-block">
             <!-- Título COCOA -->
             <div class="title-container">
@@ -326,7 +326,7 @@
             </div>
         </div>
 
-        <!-- Botón Interactivos Colores -->
+        <!-- Botón Interactivo Colores -->
         <button class="btn-colors" onclick="openColors()">COLORES</button>
 
         <!-- Interfaz Modal de Galería de Colores -->
