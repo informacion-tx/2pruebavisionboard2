@@ -92,11 +92,11 @@
             filter: drop-shadow(-10px 14px 20px rgba(0, 0, 0, 0.4));
         }
 
-        /* Bloque de Información Superior Derecha */
+        /* Bloque de Información Desplazado más a la izquierda */
         .info-block {
             position: absolute !important;
-            top: 6.5% !important;
-            right: 13.5% !important;
+            top: 7.5% !important;
+            right: 18% !important; /* Movido más a la izquierda para centrarlo mejor */
             z-index: 10 !important;
             display: flex;
             flex-direction: column;
@@ -113,7 +113,7 @@
 
         .title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 7.8vw, 5.8rem);
+            font-size: clamp(3.2rem, 8.2vw, 6.2rem);
             font-weight: 600;
             letter-spacing: 0.05em;
             color: #0a0a0a;
@@ -124,7 +124,7 @@
         /* Composición de Material */
         .composition {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(0.75rem, 1.8vw, 1.3rem);
+            font-size: clamp(0.85rem, 2vw, 1.4rem);
             font-weight: 600;
             color: #1a1a1a;
             letter-spacing: 0.12em;
@@ -132,17 +132,17 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25), 1px 1px 1px rgba(255, 255, 255, 0.3);
         }
 
-        /* Especificaciones Técnicas (Mismo tamaño que Poliéster) */
+        /* Especificaciones Técnicas */
         .specs {
             display: flex;
             flex-direction: column;
-            gap: 0.25rem;
+            gap: 0.3rem;
             align-items: flex-end;
         }
 
         .spec-text {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(0.75rem, 1.8vw, 1.3rem);
+            font-size: clamp(0.85rem, 2vw, 1.4rem);
             font-weight: 600;
             color: #0a0a0a;
             letter-spacing: 0.08em;
@@ -150,49 +150,126 @@
             white-space: nowrap;
         }
 
-        /* 5. Franja Lateral de Colores */
-        .pantone-bar {
-            position: absolute !important;
-            top: 0 !important;
-            right: 0 !important;
-            bottom: 0 !important;
-            width: 11.5% !important;
-            z-index: 20 !important;
+        /* Botón "COLORES" en la parte inferior derecha */
+        .btn-colors {
+            position: absolute;
+            bottom: 6%;
+            right: 6%;
+            z-index: 15;
+            background: rgba(10, 10, 10, 0.85);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 28px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            border-radius: 4px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-colors:hover {
+            background: #ffffff;
+            color: #0a0a0a;
+            border-color: #0a0a0a;
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Interfaz Modal de Colores (Oculta por defecto) */
+        .colors-modal {
+            position: absolute;
+            inset: 0;
+            z-index: 50;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(8px);
             display: flex;
             flex-direction: column;
-            box-shadow: -3px 0 12px rgba(0,0,0,0.15);
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
         }
 
-        .pantone-item {
-            flex: 1;
-            position: relative;
+        .colors-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-title {
+            color: #ffffff;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* Grid de Muestras Pantone en la Modal */
+        .colors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
             width: 100%;
-            cursor: pointer;
-            transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+            max-width: 680px;
+            max-height: 70vh;
+            overflow-y: auto;
+            padding: 10px;
         }
 
-        .pantone-item:hover {
-            transform: translateX(-8px);
-            z-index: 30;
-            filter: brightness(1.08);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        .color-card {
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+            transition: transform 0.25s ease;
         }
 
-        .pantone-label {
-            position: absolute;
-            bottom: 3px;
-            right: 4px;
+        .color-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .color-box {
+            height: 85px;
+            width: 100%;
+        }
+
+        .color-name {
+            padding: 8px 4px;
+            text-align: center;
             font-family: 'Playfair Display', serif;
-            font-size: clamp(0.32rem, 0.55vw, 0.52rem);
+            font-size: 0.75rem;
             font-weight: 700;
-            color: #000000;
-            letter-spacing: 0.03em;
-            user-select: none;
+            color: #0a0a0a;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
         }
 
-        .pantone-item.dark .pantone-label {
+        /* Botón para cerrar la Modal */
+        .btn-close {
+            margin-top: 25px;
+            background: transparent;
             color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 8px 24px;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border-radius: 4px;
+        }
+
+        .btn-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffffff;
         }
 
         @media (max-width: 600px) {
@@ -208,8 +285,12 @@
             .model-container {
                 left: -15% !important;
             }
-            .pantone-bar {
-                width: 13% !important;
+            .info-block {
+                right: 12% !important;
+            }
+            .colors-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
             }
         }
     </style>
@@ -228,7 +309,7 @@
             <img src="model.png" alt="Modelo Cocoa">
         </div>
 
-        <!-- Bloque de Información -->
+        <!-- Bloque de Información Reubicado -->
         <div class="info-block">
             <!-- Título COCOA -->
             <div class="title-container">
@@ -238,61 +319,78 @@
             <!-- Composición de la Tela -->
             <div class="composition">100% POLIESTER</div>
 
-            <!-- Especificaciones Técnicas (Mismo tamaño que la composición) -->
+            <!-- Especificaciones Técnicas -->
             <div class="specs">
                 <span class="spec-text">275 GM2 (+/-5%)</span>
                 <span class="spec-text">152 CM (+/-5%)</span>
             </div>
         </div>
 
-        <!-- Barra de Colores Personalizada -->
-        <div class="pantone-bar">
-            <!-- 1. MARFIL -->
-            <div class="pantone-item" style="background-color: #F4EFE3;" title="MARFIL">
-                <span class="pantone-label">MARFIL</span>
+        <!-- Botón Interactivos Colores -->
+        <button class="btn-colors" onclick="openColors()">COLORES</button>
+
+        <!-- Interfaz Modal de Galería de Colores -->
+        <div class="colors-modal" id="colorsModal">
+            <h2 class="modal-title">COLORES DISPONIBLES</h2>
+            <div class="colors-grid">
+                <div class="color-card">
+                    <div class="color-box" style="background-color: #F4EFE3;"></div>
+                    <div class="color-name">MARFIL</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-box" style="background-color: #E8DCC4;"></div>
+                    <div class="color-name">CREMA</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-box" style="background-color: #F8D9D9;"></div>
+                    <div class="color-name">BALLET</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-box" style="background-color: #FBE28E;"></div>
+                    <div class="color-name">SORBETE</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-box" style="background-color: #B9D0C1;"></div>
+                    <div class="color-name">SALVIA</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-box" style="background-color: #8C826E;"></div>
+                    <div class="color-name">DARK SAND</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-box" style="background-color: #B58456;"></div>
+                    <div class="color-name">TANG</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-box" style="background-color: #4C3C37;"></div>
+                    <div class="color-name">CHOCOLATE</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-box" style="background-color: #4A0E17;"></div>
+                    <div class="color-name">VINOTINTO</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-box" style="background-color: #438084;"></div>
+                    <div class="color-name">TEAL</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-box" style="background-color: #12181E;"></div>
+                    <div class="color-name">JET BLACK</div>
+                </div>
             </div>
-            <!-- 2. CREMA -->
-            <div class="pantone-item" style="background-color: #E8DCC4;" title="CREMA">
-                <span class="pantone-label">CREMA</span>
-            </div>
-            <!-- 3. BALLET -->
-            <div class="pantone-item" style="background-color: #F8D9D9;" title="BALLET">
-                <span class="pantone-label">BALLET</span>
-            </div>
-            <!-- 4. SORBETE -->
-            <div class="pantone-item" style="background-color: #FBE28E;" title="SORBETE">
-                <span class="pantone-label">SORBETE</span>
-            </div>
-            <!-- 5. SALVIA -->
-            <div class="pantone-item" style="background-color: #B9D0C1;" title="SALVIA">
-                <span class="pantone-label">SALVIA</span>
-            </div>
-            <!-- 6. DARK SAND -->
-            <div class="pantone-item" style="background-color: #8C826E;" title="DARK SAND">
-                <span class="pantone-label">DARK SAND</span>
-            </div>
-            <!-- 7. TANG -->
-            <div class="pantone-item" style="background-color: #B58456;" title="TANG">
-                <span class="pantone-label">TANG</span>
-            </div>
-            <!-- 8. CHOCOLATE -->
-            <div class="pantone-item dark" style="background-color: #4C3C37;" title="CHOCOLATE">
-                <span class="pantone-label">CHOCOLATE</span>
-            </div>
-            <!-- 9. VINOTINTO -->
-            <div class="pantone-item dark" style="background-color: #4A0E17;" title="VINOTINTO">
-                <span class="pantone-label">VINOTINTO</span>
-            </div>
-            <!-- 10. TEAL -->
-            <div class="pantone-item dark" style="background-color: #438084;" title="TEAL">
-                <span class="pantone-label">TEAL</span>
-            </div>
-            <!-- 11. JET BLACK -->
-            <div class="pantone-item dark" style="background-color: #12181E;" title="JET BLACK">
-                <span class="pantone-label">JET BLACK</span>
-            </div>
+            <button class="btn-close" onclick="closeColors()">CERRAR</button>
         </div>
     </div>
+
+    <script>
+        function openColors() {
+            document.getElementById('colorsModal').classList.add('active');
+        }
+
+        function closeColors() {
+            document.getElementById('colorsModal').classList.remove('active');
+        }
+    </script>
 
 </body>
 </html>
