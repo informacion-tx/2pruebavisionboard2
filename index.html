@@ -291,22 +291,26 @@
             border-color: rgba(255, 255, 255, 0.7);
         }
 
+        /* Forzado de llenado perfecto y uniforme */
         .outfit-card img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover; /* Llena la tarjeta por igual eliminando márgenes negros desiguales */
+            object-position: center;
             display: block;
-            padding: 5px;
-            transition: transform 0.3s ease;
         }
 
-        /* Ajuste fino de escalas inversas */
-        .outfit-card.scaled-down img {
-            transform: scale(0.92);
+        /* Balance de escala individual para igualar alturas de cabeza a pie */
+        .outfit-card.fit-1 img {
+            transform: scale(1.35);
         }
 
-        .outfit-card.scaled-up img {
-            transform: scale(1.08);
+        .outfit-card.fit-2 img {
+            transform: scale(1.35);
+        }
+
+        .outfit-card.fit-3 img {
+            transform: scale(1.0);
         }
 
         .btn-close {
@@ -445,13 +449,13 @@
         <div class="modal" id="ideasModal">
             <h2 class="modal-title">IDEAS DE CONFECCIÓN</h2>
             <div class="outfits-grid">
-                <div class="outfit-card scaled-down">
+                <div class="outfit-card fit-1">
                     <img src="outfit1.jpg" alt="Confección Outfit Vinotinto">
                 </div>
-                <div class="outfit-card scaled-down">
+                <div class="outfit-card fit-2">
                     <img src="outfit2.jpg" alt="Confección Outfit Beige">
                 </div>
-                <div class="outfit-card scaled-up">
+                <div class="outfit-card fit-3">
                     <img src="outfit3.jpg" alt="Confección Outfit Blanco Jeans">
                 </div>
             </div>
