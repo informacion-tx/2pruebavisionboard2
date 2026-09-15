@@ -295,12 +295,18 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, object-position 0.2s ease;
         }
 
-        /* Reducción sutil del 2% solo para el Outfit 3 */
+        /* Outfit 2: Ligeramente más grande */
+        .outfit-card.outfit-2 img {
+            transform: scale(1.03);
+        }
+
+        /* Outfit 3: Achicado levemente y movido un poco hacia arriba */
         .outfit-card.outfit-3 img {
-            transform: scale(0.98);
+            transform: scale(0.95);
+            object-position: center 35%;
         }
 
         .btn-close {
@@ -442,7 +448,7 @@
                 <div class="outfit-card">
                     <img src="outfit1.jpg" alt="Confección Outfit Vinotinto">
                 </div>
-                <div class="outfit-card">
+                <div class="outfit-card outfit-2">
                     <img src="outfit2.jpg" alt="Confección Outfit Beige">
                 </div>
                 <div class="outfit-card outfit-3">
