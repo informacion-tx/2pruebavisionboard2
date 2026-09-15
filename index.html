@@ -307,71 +307,31 @@
             object-position: center 0%;
         }
 
-        /* --- Estilos Ajustados para Puntero y Cuadro Minimalista --- */
-        .garment-pointer {
+        /* --- ESTILOS DE ETIQUETA EDITORIAL CON LÍNEAS EN CODO (SVG) --- */
+        .badge-editorial {
             position: absolute;
-            z-index: 10;
-            display: flex;
-            align-items: center;
+            z-index: 15;
+            background: #000000;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 3px 7px;
+            font-family: 'Bell MT', 'Playfair Display', serif;
+            font-size: clamp(0.48rem, 0.7vw, 0.62rem);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            border-radius: 2px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+            white-space: nowrap;
             pointer-events: none;
         }
 
-        .pointer-line {
-            height: 1px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.9);
-        }
-
-        .pointer-dot {
-            width: 5px;
-            height: 5px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            box-shadow: 0 0 5px rgba(255, 255, 255, 0.9), 0 0 2px rgba(0,0,0,0.8);
-            flex-shrink: 0;
-        }
-
-        .color-badge {
-            background: rgba(10, 10, 10, 0.82);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.35);
-            padding: 3px 6px;
-            font-family: 'Bell MT', 'Playfair Display', serif;
-            font-size: clamp(0.48rem, 0.72vw, 0.62rem);
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            border-radius: 2px;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 3px 8px rgba(0,0,0,0.5);
-            white-space: nowrap;
-        }
-
-        /* --- Alineación Exacta hacia las Prendas --- */
-        /* Maniquí 1: Puntero entra de la izquierda hacia la prenda vinotinto */
-        .pointer-outfit1 {
-            top: 41%;
-            left: 2%;
-        }
-        .pointer-outfit1 .pointer-line {
-            width: 48px;
-        }
-
-        /* Maniquí 2: Puntero entra de la derecha hacia la pierna del pantalón crema */
-        .pointer-outfit2 {
-            top: 54%;
-            right: 18%;
-            flex-direction: row-reverse;
-        }
-        .pointer-outfit2 .pointer-line {
-            width: 32px;
-        }
-
-        /* Maniquí 3: Puntero entra de la izquierda hacia el pecho/blusa marfil */
-        .pointer-outfit3 {
-            top: 31%;
-            left: 5%;
-        }
-        .pointer-outfit3 .pointer-line {
-            width: 44px;
+        .pointer-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 12;
+            pointer-events: none;
         }
 
         .btn-close {
@@ -417,12 +377,9 @@
                 grid-template-columns: repeat(3, 1fr);
                 gap: 8px;
             }
-            .color-badge {
+            .badge-editorial {
                 font-size: 0.45rem;
                 padding: 2px 4px;
-            }
-            .pointer-line {
-                width: 20px !important;
             }
         }
     </style>
@@ -518,34 +475,40 @@
             <h2 class="modal-title">IDEAS DE CONFECCIÓN</h2>
             <div class="outfits-grid">
                 
-                <!-- Outfit 1: Vinotinto -->
+                <!-- Outfit 1: Vinotinto (Etiqueta arriba izq -> Línea en L baja y dobla hacia la prenda vinotinto) -->
                 <div class="outfit-card">
                     <img src="outfit1.jpg" alt="Confección Outfit Vinotinto">
-                    <div class="garment-pointer pointer-outfit1">
-                        <span class="color-badge">COLOR: VINOTINTO</span>
-                        <div class="pointer-line"></div>
-                        <div class="pointer-dot"></div>
-                    </div>
+                    <div class="badge-editorial" style="top: 25%; left: 4%;">COLOR: VINOTINTO</div>
+                    <svg class="pointer-svg">
+                        <!-- Línea punteada en codo -->
+                        <polyline points="32,29% 32,36% 48,36%" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3,3" />
+                        <!-- Punto blanco sobre la prenda vinotinto -->
+                        <circle cx="48" cy="36%" r="2.5" fill="#ffffff" />
+                    </svg>
                 </div>
 
-                <!-- Outfit 2: Crema (Pantalón Beige) -->
+                <!-- Outfit 2: Crema (Etiqueta abajo izq -> Línea en L sale en horizontal y dobla hacia la pierna crema) -->
                 <div class="outfit-card outfit-2">
                     <img src="outfit2.jpg" alt="Confección Outfit Beige">
-                    <div class="garment-pointer pointer-outfit2">
-                        <span class="color-badge">COLOR: CREMA</span>
-                        <div class="pointer-line"></div>
-                        <div class="pointer-dot"></div>
-                    </div>
+                    <div class="badge-editorial" style="top: 68%; left: 4%;">COLOR: CREMA</div>
+                    <svg class="pointer-svg">
+                        <!-- Línea punteada en codo -->
+                        <polyline points="72,70% 50%,70% 50%,62%" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3,3" />
+                        <!-- Punto blanco sobre el pantalón crema -->
+                        <circle cx="50%" cy="62%" r="2.5" fill="#ffffff" />
+                    </svg>
                 </div>
 
-                <!-- Outfit 3: Marfil (Blusa Blanca) -->
+                <!-- Outfit 3: Marfil (Etiqueta arriba izq -> Línea en L baja a la manga/pecho de la blusa marfil) -->
                 <div class="outfit-card outfit-3">
                     <img src="outfit3.jpg" alt="Confección Outfit Blanco Jeans">
-                    <div class="garment-pointer pointer-outfit3">
-                        <span class="color-badge">COLOR: MARFIL</span>
-                        <div class="pointer-line"></div>
-                        <div class="pointer-dot"></div>
-                    </div>
+                    <div class="badge-editorial" style="top: 18%; left: 4%;">COLOR: MARFIL</div>
+                    <svg class="pointer-svg">
+                        <!-- Línea punteada en codo -->
+                        <polyline points="28,22% 28,30% 46,30%" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3,3" />
+                        <!-- Punto blanco sobre la blusa marfil -->
+                        <circle cx="46" cy="30%" r="2.5" fill="#ffffff" />
+                    </svg>
                 </div>
 
             </div>
