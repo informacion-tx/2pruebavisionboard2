@@ -367,6 +367,7 @@
             border-color: #ffffff;
         }
 
+        /* AJUSTES ESPECÍFICOS PARA DISPOSITIVOS MÓVILES */
         @media (max-width: 600px) {
             body {
                 padding: 0;
@@ -389,11 +390,22 @@
             }
             .outfits-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 8px;
+                gap: 6px;
+                padding: 5px;
             }
+            /* Escalado proporcional ultra-compacto para cajas en celular */
             .badge-editorial {
-                font-size: 0.4rem;
-                padding: 1px 3px;
+                font-size: 0.38rem !important;
+                padding: 1px 3px !important;
+                border-width: 0.5px !important;
+                letter-spacing: 0.05em !important;
+            }
+            .pointer-svg polyline {
+                stroke-width: 0.25 !important;
+                stroke-dasharray: 1,1 !important;
+            }
+            .pointer-svg circle {
+                r: 0.5 !important;
             }
         }
     </style>
@@ -489,7 +501,7 @@
             <h2 class="modal-title">IDEAS DE CONFECCIÓN</h2>
             <div class="outfits-grid">
                 
-                <!-- Outfit 1: Vinotinto (Etiqueta corrida más a la derecha) -->
+                <!-- Outfit 1: Vinotinto -->
                 <div class="outfit-card">
                     <img src="outfit1.jpg" alt="Confección Outfit Vinotinto">
                     <div class="badge-editorial" style="top: 15%; right: 2%;">VINOTINTO</div>
@@ -499,7 +511,7 @@
                     </svg>
                 </div>
 
-                <!-- Outfit 2: Crema (Etiqueta abajo señalando la pierna) -->
+                <!-- Outfit 2: Crema -->
                 <div class="outfit-card outfit-2">
                     <img src="outfit2.jpg" alt="Confección Outfit Beige">
                     <div class="badge-editorial" style="top: 74%; left: 5%;">CREMA</div>
@@ -509,7 +521,7 @@
                     </svg>
                 </div>
 
-                <!-- Outfit 3: Marfil (Etiqueta a la altura de la cabeza) -->
+                <!-- Outfit 3: Marfil -->
                 <div class="outfit-card outfit-3">
                     <img src="outfit3.jpg" alt="Confección Outfit Blanco Jeans">
                     <div class="badge-editorial" style="top: 14%; left: 5%;">MARFIL</div>
