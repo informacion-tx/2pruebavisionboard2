@@ -265,7 +265,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 18px;
             width: 100%;
-            max-width: 720px;
+            max-width: 740px;
             max-height: 68vh;
             overflow-y: auto;
             padding: 10px;
@@ -298,15 +298,80 @@
             transition: transform 0.2s ease, object-position 0.2s ease;
         }
 
-        /* Outfit 2: Tamaño ampliado */
         .outfit-card.outfit-2 img {
             transform: scale(1.07);
         }
 
-        /* Outfit 3: Ajustado exactamente 1 punto más abajo (translateY(-3%)) */
         .outfit-card.outfit-3 img {
             transform: scale(0.95) translateY(-3%);
             object-position: center 0%;
+        }
+
+        /* --- Estilos para la Guía Punteada y Etiqueta de Color --- */
+        .garment-pointer {
+            position: absolute;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .pointer-line {
+            height: 1px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.85);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .pointer-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.8), 0 0 2px rgba(0,0,0,0.8);
+        }
+
+        .color-badge {
+            background: rgba(10, 10, 10, 0.85);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 4px 8px;
+            font-family: 'Bell MT', 'Playfair Display', serif;
+            font-size: clamp(0.55rem, 0.9vw, 0.72rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            border-radius: 3px;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+            white-space: nowrap;
+        }
+
+        /* Posiciones específicas para cada maniquí */
+        /* Maniquí 1 - Vinotinto (Apunta al cuerpo/corset) */
+        .pointer-outfit1 {
+            top: 38%;
+            left: 4%;
+        }
+        .pointer-outfit1 .pointer-line {
+            width: 32px;
+        }
+
+        /* Maniquí 2 - Crema (Apunta al pantalón beige) */
+        .pointer-outfit2 {
+            top: 56%;
+            right: 4%;
+            flex-direction: row-reverse;
+        }
+        .pointer-outfit2 .pointer-line {
+            width: 28px;
+        }
+
+        /* Maniquí 3 - Marfil (Apunta a la camisa blanca) */
+        .pointer-outfit3 {
+            top: 26%;
+            left: 4%;
+        }
+        .pointer-outfit3 .pointer-line {
+            width: 30px;
         }
 
         .btn-close {
@@ -351,6 +416,13 @@
             .outfits-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 8px;
+            }
+            .color-badge {
+                font-size: 0.5rem;
+                padding: 3px 5px;
+            }
+            .pointer-line {
+                width: 15px !important;
             }
         }
     </style>
@@ -445,15 +517,37 @@
         <div class="modal" id="ideasModal">
             <h2 class="modal-title">IDEAS DE CONFECCIÓN</h2>
             <div class="outfits-grid">
+                
+                <!-- Outfit 1: Vinotinto -->
                 <div class="outfit-card">
                     <img src="outfit1.jpg" alt="Confección Outfit Vinotinto">
+                    <div class="garment-pointer pointer-outfit1">
+                        <span class="color-badge">COLOR: VINOTINTO</span>
+                        <div class="pointer-line"></div>
+                        <div class="pointer-dot"></div>
+                    </div>
                 </div>
+
+                <!-- Outfit 2: Crema (Pantalón Beige) -->
                 <div class="outfit-card outfit-2">
                     <img src="outfit2.jpg" alt="Confección Outfit Beige">
+                    <div class="garment-pointer pointer-outfit2">
+                        <span class="color-badge">COLOR: CREMA</span>
+                        <div class="pointer-line"></div>
+                        <div class="pointer-dot"></div>
+                    </div>
                 </div>
+
+                <!-- Outfit 3: Marfil (Blusa Blanca) -->
                 <div class="outfit-card outfit-3">
                     <img src="outfit3.jpg" alt="Confección Outfit Blanco Jeans">
+                    <div class="garment-pointer pointer-outfit3">
+                        <span class="color-badge">COLOR: MARFIL</span>
+                        <div class="pointer-line"></div>
+                        <div class="pointer-dot"></div>
+                    </div>
                 </div>
+
             </div>
             <button class="btn-close" onclick="closeModal('ideasModal')">CERRAR</button>
         </div>
