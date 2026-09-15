@@ -307,7 +307,7 @@
             object-position: center 0%;
         }
 
-        /* --- Estilos para la Guía Punteada y Etiqueta de Color --- */
+        /* --- Estilos Ajustados para Puntero y Cuadro Minimalista --- */
         .garment-pointer {
             position: absolute;
             z-index: 10;
@@ -318,60 +318,60 @@
 
         .pointer-line {
             height: 1px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.85);
-            box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            border-top: 1px dashed rgba(255, 255, 255, 0.9);
         }
 
         .pointer-dot {
-            width: 6px;
-            height: 6px;
+            width: 5px;
+            height: 5px;
             background-color: #ffffff;
             border-radius: 50%;
-            box-shadow: 0 0 6px rgba(255, 255, 255, 0.8), 0 0 2px rgba(0,0,0,0.8);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.9), 0 0 2px rgba(0,0,0,0.8);
+            flex-shrink: 0;
         }
 
         .color-badge {
-            background: rgba(10, 10, 10, 0.85);
+            background: rgba(10, 10, 10, 0.82);
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 4px 8px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            padding: 3px 6px;
             font-family: 'Bell MT', 'Playfair Display', serif;
-            font-size: clamp(0.55rem, 0.9vw, 0.72rem);
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            border-radius: 3px;
+            font-size: clamp(0.48rem, 0.72vw, 0.62rem);
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            border-radius: 2px;
             backdrop-filter: blur(4px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.5);
             white-space: nowrap;
         }
 
-        /* Posiciones específicas para cada maniquí */
-        /* Maniquí 1 - Vinotinto (Apunta al cuerpo/corset) */
+        /* --- Alineación Exacta hacia las Prendas --- */
+        /* Maniquí 1: Puntero entra de la izquierda hacia la prenda vinotinto */
         .pointer-outfit1 {
-            top: 38%;
-            left: 4%;
+            top: 41%;
+            left: 2%;
         }
         .pointer-outfit1 .pointer-line {
-            width: 32px;
+            width: 48px;
         }
 
-        /* Maniquí 2 - Crema (Apunta al pantalón beige) */
+        /* Maniquí 2: Puntero entra de la derecha hacia la pierna del pantalón crema */
         .pointer-outfit2 {
-            top: 56%;
-            right: 4%;
+            top: 54%;
+            right: 18%;
             flex-direction: row-reverse;
         }
         .pointer-outfit2 .pointer-line {
-            width: 28px;
+            width: 32px;
         }
 
-        /* Maniquí 3 - Marfil (Apunta a la camisa blanca) */
+        /* Maniquí 3: Puntero entra de la izquierda hacia el pecho/blusa marfil */
         .pointer-outfit3 {
-            top: 26%;
-            left: 4%;
+            top: 31%;
+            left: 5%;
         }
         .pointer-outfit3 .pointer-line {
-            width: 30px;
+            width: 44px;
         }
 
         .btn-close {
@@ -418,11 +418,11 @@
                 gap: 8px;
             }
             .color-badge {
-                font-size: 0.5rem;
-                padding: 3px 5px;
+                font-size: 0.45rem;
+                padding: 2px 4px;
             }
             .pointer-line {
-                width: 15px !important;
+                width: 20px !important;
             }
         }
     </style>
