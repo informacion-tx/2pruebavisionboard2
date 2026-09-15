@@ -307,7 +307,7 @@
             object-position: center 0%;
         }
 
-        /* --- ETIQUETAS Y TRAZADOS MINIMALISTAS FINOS --- */
+        /* --- ETIQUETAS Y LÍNEAS ULTRAFINAS EDITORIALES --- */
         .badge-editorial {
             position: absolute;
             z-index: 20;
@@ -335,15 +335,15 @@
             pointer-events: none;
         }
 
-        /* Línea ultrafina */
+        /* Línea ultra-delgada */
         .pointer-svg polyline {
             stroke: rgba(255, 255, 255, 0.85);
-            stroke-width: 0.6;
-            stroke-dasharray: 2,2;
+            stroke-width: 0.35;
+            stroke-dasharray: 1.5,1.5;
             fill: none;
         }
 
-        /* Micro-punto terminal */
+        /* Micro-punto de selección */
         .pointer-svg circle {
             fill: #ffffff;
         }
@@ -489,33 +489,33 @@
             <h2 class="modal-title">IDEAS DE CONFECCIÓN</h2>
             <div class="outfits-grid">
                 
-                <!-- Outfit 1: Vinotinto -->
+                <!-- Outfit 1: Vinotinto (Cuello -> Esquina lateral del top) -->
                 <div class="outfit-card">
                     <img src="outfit1.jpg" alt="Confección Outfit Vinotinto">
-                    <div class="badge-editorial" style="top: 30%; right: 5%;">VINOTINTO</div>
+                    <div class="badge-editorial" style="top: 18%; right: 5%;">VINOTINTO</div>
                     <svg class="pointer-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <polyline points="72,32 72,40 54,40" />
-                        <circle cx="54" cy="40" r="0.8" />
+                        <polyline points="74,20 74,32 40,32" />
+                        <circle cx="40" cy="32" r="0.6" />
                     </svg>
                 </div>
 
-                <!-- Outfit 2: Crema -->
+                <!-- Outfit 2: Crema (Abajo -> Esquina exterior pantalón) -->
                 <div class="outfit-card outfit-2">
                     <img src="outfit2.jpg" alt="Confección Outfit Beige">
-                    <div class="badge-editorial" style="top: 66%; left: 5%;">CREMA</div>
+                    <div class="badge-editorial" style="top: 74%; left: 5%;">CREMA</div>
                     <svg class="pointer-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <polyline points="28,68 28,60 46,60" />
-                        <circle cx="46" cy="60" r="0.8" />
+                        <polyline points="28,76 28,64 38,64" />
+                        <circle cx="38" cy="64" r="0.6" />
                     </svg>
                 </div>
 
-                <!-- Outfit 3: Marfil (Alineado a la altura de la cabeza) -->
+                <!-- Outfit 3: Marfil (Cabeza -> Esquina solapa camisa) -->
                 <div class="outfit-card outfit-3">
                     <img src="outfit3.jpg" alt="Confección Outfit Blanco Jeans">
                     <div class="badge-editorial" style="top: 14%; left: 5%;">MARFIL</div>
                     <svg class="pointer-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <polyline points="28,16 28,31 44,31" />
-                        <circle cx="44" cy="31" r="0.8" />
+                        <polyline points="28,16 28,26 38,26" />
+                        <circle cx="38" cy="26" r="0.6" />
                     </svg>
                 </div>
 
