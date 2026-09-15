@@ -259,7 +259,7 @@
             text-transform: uppercase;
         }
 
-        /* Grid de Ideas de Confección (Maniquíes con Tamaño Idéntico) */
+        /* Grid de Ideas de Confección */
         .outfits-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -288,7 +288,6 @@
         }
 
         .outfit-card:hover {
-            transform: scale(1.03);
             border-color: rgba(255, 255, 255, 0.7);
         }
 
@@ -298,6 +297,16 @@
             object-fit: contain;
             display: block;
             padding: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Ajustes proporcionales específicos por imagen */
+        .outfit-card.large img {
+            transform: scale(1.18);
+        }
+
+        .outfit-card.small img {
+            transform: scale(0.88);
         }
 
         .btn-close {
@@ -436,13 +445,13 @@
         <div class="modal" id="ideasModal">
             <h2 class="modal-title">IDEAS DE CONFECCIÓN</h2>
             <div class="outfits-grid">
-                <div class="outfit-card">
+                <div class="outfit-card large">
                     <img src="outfit1.jpg" alt="Confección Outfit Vinotinto">
                 </div>
-                <div class="outfit-card">
+                <div class="outfit-card large">
                     <img src="outfit2.jpg" alt="Confección Outfit Beige">
                 </div>
-                <div class="outfit-card">
+                <div class="outfit-card small">
                     <img src="outfit3.jpg" alt="Confección Outfit Blanco Jeans">
                 </div>
             </div>
